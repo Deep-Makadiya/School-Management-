@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="student_examattendance_data_tree_view">
+            <field name="name">examattendance.data.tree.view</field>
+            <field name="model">student.examattendance</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="exam_academic_year"/>
+                    <field name="exam_standard"/>
+                    <field name="exam_division"/>
+                    <field name="exam_name" string="Divsion"/>
+                    <field name="exam_subject"/>
+                    <field name="exam_starttime"/>
+                    <field name="exma_endtime"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="student_examattendance_data_form_view">
+            <field name="name">examattendance.data.form.view</field>
+            <field name="model">student.examattendance</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="exam_academic_year" />
+                                <field name="exam_standard" />
+                                <field name="exam_division" />
+                                <field name="exam_name"  />
+                            </group>
+                            <group>
+                                <field name="exam_subject" />
+                                <field name="exam_starttime" />
+                                <field name="exma_endtime" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Students" name="Students_attendance">
+                                <field name="exam_student">
+                                    <tree editable='bottom'>
+                                        <field name="Student_first_name"/>
+                                        <field name="exam_attendance" widget="radio"/>
+                                        <field name="exam_reamrks"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="student_examattendance_data_action">
+            <field name="name">Student Exam Attendance Data</field>
+            <field name="res_model">student.examattendance</field>
+            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="view_id" ref="school.student_examattendance_data_tree_view"/>
+        </record>
+
+
+
+
+
+    </data>
+</odoo>

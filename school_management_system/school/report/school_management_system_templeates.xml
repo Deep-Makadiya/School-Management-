@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <!--</template>-->
+<odoo>
+    <template id="student_admission_detail_templates">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+
+                        <center><h2>Student Admission Details</h2></center>
+<!--                        <br></br>-->
+<!--                        <p>-->
+<!--                            Hello-->
+<!--                        </p>-->
+                        <body>
+<!--                            <span t-field="o.student_full_name"/><br></br>-->
+<!--                            <span t-field="o.enrollment_no"/><br></br>-->
+<!--                            <span t-field="o.registration_date"/><br></br>-->
+<!--                            <span t-field="o.admission_line_ids"/><br></br>-->
+<!--&lt;!&ndash;                            <span t-field="o.admin_student_address"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <span t-field="o.student_full_name"/>&ndash;&gt;-->
+
+                            <div class="admission-details">
+                                <div class="detail">
+                                    <span style="color:blue"> Full Name :- </span>
+                                    <span t-field="o.student_full_name"/>
+<!--                                    <span>Name:</span>-->
+<!--                                    John Doe-->
+                                </div>
+                                <div class="detail">
+                                    <span style="color:blue"> Registration Number :- </span>
+                                    <span t-field="o.enrollment_no"/>
+<!--                                    <span>Admission Number:</span>-->
+<!--                                    ABC123-->
+                                </div>
+                                <div class="detail">
+                                    <span style="color:blue"> Registration Date :- </span>
+                                    <span t-field="o.registration_date"/>
+<!--                                    <span>Course:</span>-->
+<!--                                    Computer Science-->
+                                </div>
+                                <div class="detail">
+                                    <span style="color:blue"> Address :- </span>
+                                    <span t-field="o.admin_student_address"/>
+<!--                                    <span>Admission Date:</span>-->
+<!--                                    January 1, 2024-->
+                                </div>
+<!--                                <div class="detail">-->
+<!--                                    <span>Address:</span>-->
+<!--                                    123 Main Street, City, Country-->
+<!--                                </div>-->
+                            </div>
+
+                        </body>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

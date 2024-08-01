@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--School Exam report-->
+<odoo>
+    <data>
+   <record id="student_admission_detail_template_action" model="ir.actions.report">
+       <field name="name">student admission detail</field>
+       <field name="model">school.admission</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">school.student_admission_detail_templates</field>
+       <field name="report_file">school.student_admission_detail_templates</field>
+       <field name="print_report_name">'%s' % (object.student_full_name).replace('/', '')</field>
+      <field name="binding_model_id" ref="model_school_admission" />
+       <field name="binding_type">report</field>
+   </record>
+    </data>
+</odoo>
+
+
+

@@ -1,0 +1,165 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="student_data_tree_view">
+            <field name="name">school.data.tree.view</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="full_name"/>
+                    <field name="dob"/>
+                    <field name="std_id"/>
+                    <field name="age"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="student_data_form_view">
+            <field name="name">school.data.form.view</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+<!--                        <div class="oe_button_box" name="button_box">-->
+<!--                            <button name="address" icon="fa-address-book-o" type="object" string="Address"/>-->
+<!--                        </div>-->
+<!--                        <div class="oe_button_box" name="button_box">-->
+<!--                        <button class="oe_stat_button" type="object" name="show_subject" icon="fa-book">-->
+<!--                            <field string="Subjects" name="attendance_std" widget="statinfo"-->
+<!--                                   options="{'clickable': '1'}"/>-->
+<!--                        </button>-->
+<!--                        </div>-->
+                        <div class="oe_title">
+                            <h1>
+                                <field name="full_name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="entrollment_no" readonly="1"/>
+                            </h2>
+                        </div>
+                        <group>
+<!--                            <field name="full_name"/>-->
+                            <field name="Student_first_name"/>
+                            <field name="last_name"/>
+<!--                            <field name="entrollment_no"/>-->
+                            <field name="dob"/>
+                            <field name="age"/>
+                            <field name="std_id"/>
+                            <field name="get_admin_student_address"/>
+                        </group>
+                        <group>
+<!--                            <button name="action_test" string="Object "-->
+<!--                                    confirm="Are You Sure WaNt Open The object Button ?" type="object"-->
+<!--                                    class="oe_highlight"></button>-->
+<!--                            &lt;!&ndash;                            <button name="action_view_details" string="Action"  type="object" class="oe_highlight"></button>&ndash;&gt;-->
+<!--                            <button name="%(admission_data_action)d" string="Action "-->
+<!--                                    help="On Clicking This Button You Will Be REdirecting to The Student Admission Pannel"-->
+<!--                                    confirm="Are You Sure Want To Open The Student Admission Detail ? " type="action"-->
+<!--                                    class="oe_highlight"></button>-->
+                        </group>
+<!--                        <notebook>-->
+<!--                            <page string="Students" name="enrolled_students">-->
+<!--                                <field name="Student_first_name">-->
+<!--                                    <tree>-->
+<!--                                        <field name="enrollment_no"/>-->
+<!--                                    </tree>-->
+<!--                                </field>-->
+<!--                            </page>-->
+<!--                        </notebook>-->
+                    </sheet>
+                    <!--Chatter-->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- explicit search view definition -->
+
+    <record id="student_data_search_view" model="ir.ui.view">
+            <field name="name">school.data.search.view</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="dob"/>
+                    <field name="age"/>
+                    <searchpanel>
+                        <field name="std_id" string="Standard" select="multi" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+
+<!--                &lt;!&ndash; explicit kanban view definition &ndash;&gt;-->
+<!--        <record id="student_data_kanban_view" model="ir.ui.view">-->
+<!--            <field name="name">student.data.kanban.view</field>-->
+<!--            <field name="model">school.student</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <kanban class="o_school_student_kanban">-->
+<!--                    <field name="first_name"/>-->
+<!--                    <field name="last_name"/>-->
+<!--                    <field name="dob"/>-->
+<!--                    <field name="standard"/>-->
+<!--                    <field name="division"/>-->
+<!--                    <field name="age"/>-->
+<!--                    <field name="address"/>-->
+<!--                    <templates>-->
+<!--                        <t t-name="kanban-box">-->
+<!--                            <div t-attf-class="oe_kanban_global_click">-->
+<!--                                <div class="o_kanban_image">-->
+<!--                                    <img alt="Avatar"-->
+<!--                                         t-att-src="kanban_image('school.student', 'image_medium',record.id.raw_value)"/>-->
+<!--                                </div>-->
+<!--                                <div class="oe_kanban_details">-->
+<!--                                    <strong class="o_kanban_record_title">-->
+<!--                                         <lable>First Name : </lable>-->
+<!--                                        <field name="first_name"/>-->
+<!--                                        <br/>-->
+<!--                                         <lable>Last Name : </lable>-->
+<!--                                        <field name="last_name"/>-->
+<!--                                        <br/>-->
+<!--                                         <lable>Date of Birth : </lable>-->
+<!--                                        <field name="dob"/>-->
+<!--                                        <br/>-->
+<!--                                         <lable>Address : </lable>-->
+<!--                                        <field name="address"/>-->
+<!--                                        <br/>-->
+<!--                                        <lable>Address : </lable>-->
+<!--                                        <field name="standard"/>-->
+<!--                                        <br/>-->
+<!--                                        <lable>Address : </lable>-->
+<!--                                        <field name="division"/>-->
+<!--                                        <br/>-->
+<!--                                        <lable>Address : </lable>-->
+<!--                                        <field name="age"/>-->
+<!--                                        <br/>-->
+<!--                                    </strong>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </t>-->
+<!--                    </templates>-->
+<!--                </kanban>-->
+<!--            </field>-->
+<!--        </record>-->
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="student_data_action">
+            <field name="name">Student Data</field>
+            <field name="res_model">school.student</field>
+            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="view_id" ref="school.student_data_tree_view"/>
+        </record>
+
+
+
+    </data>
+</odoo>

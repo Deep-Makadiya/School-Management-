@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="timetable_data_tree_view">
+            <field name="name">timetable.data.tree.view</field>
+            <field name="model">school.timetable</field>
+            <field name="arch" type="xml">
+                <tree>
+<!--                    <field name="name"/>-->
+                    <field name="Period"/>
+                    <field name="subjects"/>
+                    <field name="standard_id"/>
+                    <field name="teacher_name" string="Faculty"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="timetable_data_form_view">
+            <field name="name">timetable.data.form.view</field>
+            <field name="model">school.timetable</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="teacher_name" readonly="1"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+<!--                                <field name="name"/>-->
+                                <field name="teacher_name" string="Faculty"/>
+                                <field name="gender"/>
+<!--                                <field name="Period" />-->
+                            </group>
+                            <group>
+                                <field name="Period"/>
+                                <field name="standard_id"/>
+                                <field name="subjects" widget="many2many_tags" />
+                            </group>
+                        </group>
+                         <notebook>
+                             <page string="Monday" name="monday">
+                                 <group>
+                                     <field name="Period"/>
+                                     <field name="subjects"/>
+                                     <field name="teacher_name"/>
+                                 </group>
+                             </page>
+<!--                             <page string="Tuesday" name="tuesday">-->
+<!--                             <group>-->
+<!--                                 <field name="Period"/>-->
+<!--                                 <field name="subjects"/>-->
+<!--                                 <field name="teacher_name"/>-->
+<!--                             </group>-->
+<!--                         </page>-->
+<!--                         <page string="Wensday" name="wensday">-->
+<!--                             <group>-->
+<!--                                 <field name="Period"/>-->
+<!--                                 <field name="subjects"/>-->
+<!--                                 <field name="teacher_name"/>-->
+<!--                             </group>-->
+<!--                         </page>-->
+<!--                         <page string="Thursday" name="thursaday">-->
+<!--                             <group>-->
+<!--                                 <field name="Period"/>-->
+<!--                                 <field name="subjects"/>-->
+<!--                                 <field name="teacher_name"/>-->
+<!--                             </group>-->
+<!--                         </page>-->
+<!--                         <page string="Friday" name="friday">-->
+<!--                             <group>-->
+<!--                                 <field name="Period"/>-->
+<!--                                 <field name="subjects"/>-->
+<!--                                 <field name="teacher_name"/>-->
+<!--                             </group>-->
+<!--                         </page>-->
+<!--                         <page string="Saturaday" name="saturaday">-->
+<!--                             <group>-->
+<!--                                 <field name="Period"/>-->
+<!--                                 <field name="subjects"/>-->
+<!--                                 <field name="teacher_name"/>-->
+<!--                             </group>-->
+<!--                         </page>-->
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="timetable_data_action">
+            <field name="name">Timetable Data</field>
+            <field name="res_model">school.timetable</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="school.timetable_data_tree_view"/>
+        </record>
+
+
+
+
+
+    </data>
+</odoo>

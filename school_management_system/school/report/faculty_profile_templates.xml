@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <!--</template>-->
+    <odoo>
+    <template id="faculty_profile">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+
+                        <center><h2>Faculty Profile</h2></center>
+<!--                        <br></br>-->
+<!--                        <p>-->
+<!--                            Hello-->
+<!--                        </p>-->
+                        <body>
+<!--                            <span t-field="o.student_full_name"/><br></br>-->
+<!--                            <span t-field="o.enrollment_no"/><br></br>-->
+<!--                            <span t-field="o.registration_date"/><br></br>-->
+<!--                            <span t-field="o.admission_line_ids"/><br></br>-->
+<!--&lt;!&ndash;                            <span t-field="o.admin_student_address"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <span t-field="o.student_full_name"/>&ndash;&gt;-->
+
+                            <div class="admission-details">
+                                <div class="detail">
+                                    <span style="color:blue"> Full Name :- </span>
+                                    <span t-field="o.full_name"/>
+<!--                                    <span>Name:</span>-->
+<!--                                    John Doe-->
+                                </div>
+                                <div class="detail">
+                                    <span style="color:blue"> DOB :- </span>
+                                    <span t-field="o.dob"/>
+<!--                                    <span>Admission Number:</span>-->
+<!--                                    ABC123-->
+                                </div>
+                                <div class="detail">
+                                    <span style="color:blue"> FACULTY AGE :- </span>
+                                    <span t-field="o.Fac_age"/>
+<!--                                    <span>Course:</span>-->
+<!--                                    Computer Science-->
+                                </div>
+<!--                                <div class="detail">-->
+<!--                                    <span style="color:blue"> QUALIFICATION:- </span>-->
+<!--                                    <span t-field="o.Qualification"/>-->
+<!--                                </div>-->
+                                <div class="detail">
+                                    <span style="color:blue">FACULTY ID:-</span>
+                                    <span t-field="o.faculty_id"/>
+                                </div>
+                                <div class="detail">
+                                    <span style="color:blue">SUBJECT ALLOCATED :-</span>
+                                    <span t-field="o.subject_faculty"/>
+                                </div>
+                                <div class="detail">
+                                    <span style="color:blue">JOINING DATE :-</span>
+                                    <span t-field="o.joining_date"/>
+<!--                                    <span>Admission Date:</span>-->
+<!--                                    January 1, 2024-->
+                                </div>
+<!--                                <div class="detail">-->
+<!--                                    <span>Address:</span>-->
+<!--                                    123 Main Street, City, Country-->
+<!--                                </div>-->
+                            </div>
+
+                        </body>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="attendance_data_tree_view">
+            <field name="name">attendance.data.tree.view</field>
+            <field name="model">student.attendance</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"/>
+                    <field name="academic_year"/>
+                    <field name="attendance_Class"/>
+                    <field name="atten_division" string="Divsion"/>
+                    <field name="session"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="attendance_data_form_view">
+            <field name="name">attendance.data.form.view</field>
+            <field name="model">student.attendance</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date" />
+                                <field name="academic_year" />
+                            </group>
+                            <group>
+                                <field name="attendance_Class" />
+                                <field name="atten_division" string="Division" />
+                                <field name="session" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Students" name="Students_attendance">
+                                <field name="student_attendance_report">
+                                    <tree editable='bottom'>
+                                        <field name="Student_first_name"/>
+                                        <field name="attendance" widget="radio"/>
+                                        <field name="reamrks"/>
+<!--                                        <field name="full_name" />-->
+<!--                                        <field name="present" widget="radio"/>-->
+<!--                                        <field name="absent" widget="radio" />-->
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="student_attendance_data_action">
+            <field name="name">Student Attendance Data</field>
+            <field name="res_model">student.attendance</field>
+            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="view_id" ref="school.attendance_data_tree_view"/>
+        </record>
+
+
+
+
+
+    </data>
+</odoo>

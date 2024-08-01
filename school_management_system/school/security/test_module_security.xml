@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="school_main_group_category" model="ir.module.category">
+        <field name="name">School[Combobox]</field>
+    </record>
+
+<!--    This has only the read permission(or read access)-->
+     <record id="access_faculty_school_profile_access" model="res.groups">
+        <field name="name">access faculty school profile</field>
+        <field name="category_id" ref="school.school_main_group_category"/>
+    </record>
+
+
+<!--    This has all the access right -->
+    <record id="access_faculty_school_profile_access_000" model="res.groups">
+        <field name="name">access faculty school profile 000</field>
+        <field name="category_id" ref="school.school_main_group_category"/>
+    </record>
+
+
+<!--    In this The group is shown in the techincal category of the groups in which i have taken the id of the techincal field after the base .    from the TEchincal -->
+    <record id="access_faculty_school" model="res.groups">
+        <field name="name">BASE FACULTY Techincal</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+<!--    In this i have inherit the id of the sales and put it into the ref after base.     from Human resources-->
+    <record id="base_access" model="res.groups">
+        <field name="name">Base faculty sales</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+    </record>
+
+
+
+
+
+
+
+
+
+<!--     <record id="access_faculty_school_profile_group_01" model="res.groups">-->
+<!--        <field name="name">access faculty school</field>-->
+<!--        <field name="category_id" ref="school.school_main_group_category"/>-->
+<!--        <field name="implied_ids" eval="[(4, ref('school.access_faculty_school_profile_access'))]"/>-->
+<!--    </record>-->
+
+<!--    <record id="access_faculty_school_profile_group_1" model="res.groups">-->
+<!--        <field name="name">access faculty school A</field>-->
+<!--        <field name="category_id" ref="school.school_main_group_category"/>-->
+<!--        <field name="implied_ids" eval="[(4, ref('school.access_faculty_school_profile_group_01'))]"/>-->
+<!--    </record>-->
+
+<!--    <record id="access_faculty_school_profile_group_12" model="res.groups">-->
+<!--        <field name="name">access faculty school ABC</field>-->
+<!--        <field name="category_id" ref="school.school_main_group_category"/>-->
+<!--        <field name="implied_ids" eval="[(4, ref('school.access_faculty_school_profile_group_1'))]"/>-->
+<!--    </record>-->
+
+
+
+
+
+
+
+
+
+<!--        <record id="group_school_timetable" model="ir.model.access">-->
+<!--            <field name="name">School Timetable Access</field>-->
+<!--            <field name="model_id" ref="model_school_timetable"/>-->
+<!--            <field name="group_id" ref="school.access_student_school_profile_group"/>-->
+<!--            <field name="perm_read">1</field>-->
+<!--            <field name="perm_write">0</field>-->
+<!--            <field name="perm_unlink">0</field>-->
+<!--            <field name="perm_create">0</field>-->
+<!--        </record>-->
+
+
+
+<!--        <record id="access_for_student_profile" model="ir.rule">-->
+<!--            <field name="name">Access student Profile</field>-->
+<!--            <field name="model_id" ref="school.model_school_student"></field>-->
+<!--&lt;!&ndash;            <field name="domain_force">[('create_uid','=','user.id')]</field>&ndash;&gt;-->
+<!--            <field name="groups" eval="[(4,ref('school.access_faculty_school_profile_access'))]"/>-->
+<!--        </record>-->
+
+
+</odoo>

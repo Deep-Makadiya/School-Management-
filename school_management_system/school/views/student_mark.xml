@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+        <record model="ir.ui.view" id="mark_tree_view">
+            <field name="name">mark.data.tree.view</field>
+            <field name="model">students.marks</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="student_name_id"/>
+                    <field name="exam_name"/>
+                    <field name="class_id"/>
+                    <field name="total_mark"/>
+                    <field name="obtain_mark"/>
+                    <field name="total_percentage"/>
+                </tree>
+            </field>
+        </record>
+
+     <record model="ir.ui.view" id="mark_data_form_view">
+            <field name="name">mark.data.form.view</field>
+            <field name="model">students.marks</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="student_name_id"/>
+                                <field name="exam_name"/>
+                                <field name="class_id"/>
+                            </group>
+                            <group>
+                                <field name="total_mark"/>
+                                <field name="total_pass_mark" readonly="1"/>
+                                <field name="obtain_mark"/>
+                                <field name="total_percentage"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+         <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="action_student_mark">
+            <field name="name">Marks</field>
+            <field name="res_model">students.marks</field>
+            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="view_id" ref="school.mark_tree_view"/>
+        </record>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="standard_data_tree_view">
+            <field name="name">standard.data.tree.view</field>
+            <field name="model">school.standard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="standard"/>
+                    <field name="division"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="standard_data_form_view">
+            <field name="name">standard.data.form.view</field>
+            <field name="model">school.standard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="standard" />
+                            <field name="division" />
+                        </group>
+                        <notebook>
+                            <page string="Students" name="enrolled_students">
+                                <field name="student_ids">
+                                    <tree>
+<!--                                       <field name="first_name" />-->
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Amin Students" name="Admin">
+                                <field name="admin_ids">
+                                    <tree>
+<!--                                       <field name="first_name" />-->
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Faculty" name="Fac">
+                                <field name="faculty_ids">
+                                    <tree>
+<!--                                       <field name="first_name" />-->
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Time Table" name="Time Table">
+                                <field name="faculty_table">
+                                    <tree>
+                                       <field name="Period" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="standard_data_action">
+            <field name="name">Student Standard</field>
+            <field name="res_model">school.standard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="school.standard_data_tree_view"/>
+        </record>
+
+
+
+
+
+    </data>
+</odoo>

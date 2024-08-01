@@ -1,0 +1,142 @@
+<odoo>
+    <data>
+
+                <!--Sequenece number-->
+        <record id="seq_school_faculty" model="ir.sequence">
+            <field name="name">School Faculty</field>
+            <field name="code">school.faculty.sequence</field>
+            <field name="prefix">FAId</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="faculty_data_tree_view">
+            <field name="name">faculty.data.tree.view</field>
+            <field name="model">school.faculty</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="full_name"/>
+                    <field name="Fac_Regist_no"/>
+                    <field name="faculty_id"/>
+                    <field name="joining_date"/>
+                    <field name="Experince"/>
+<!--                    <field name="subject_faculty" string="Subject"/>-->
+<!--                    <field name="qualification"/>-->
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="faculty_data_form_view">
+            <field name="name">faculty.data.form.view</field>
+            <field name="model">school.faculty</field>
+            <field name="arch" type="xml">
+                <form>
+<!--                    <header>-->
+<!--                        <button name="check_orm" string="Check Orm" type="object" class="oe_highlight"/>-->
+<!--                    </header>-->
+                    <sheet>
+                          <div class="oe_title">
+                            <h1>
+                                <field name="full_name" readonly="1"/>
+                            </h1>
+                         </div>
+                         <div class="oe_title">
+                             <h2>
+                                 <field name="Fac_Regist_no" readonly="1"/>
+                             </h2>
+                         </div>
+                        <group>
+<!--                            <field name="full_name"/>-->
+                            <group>
+                                <field name="first_name" />
+                                <field name="last_name" />
+                                <field name="dob" />
+                                <field name="Fac_age" />
+                                <field name="gender" widget="radio"/>
+                                <field name="faculty_id"/>
+                                <field name="subject_faculty" string="Subject" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="joining_date"/>
+                                <field name="Experince"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+                      <!-- explicit search view definition -->
+
+    <record id="faculty_data_search_view" model="ir.ui.view">
+            <field name="name">faculty.data.search.view</field>
+            <field name="model">school.faculty</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="first_name"/>
+                    <field name="dob"/>
+                    <field name="faculty_id"/>
+                    <searchpanel>
+                        <field name="gender" string="Gender" select="multi" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- explicit kanban view definition -->
+<!--        <record id="faculty_data_kanban_view" model="ir.ui.view">-->
+<!--            <field name="name">faculty.data.kanban.view</field>-->
+<!--            <field name="model">school.faculty</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <kanban class="o_school_student_kanban">-->
+<!--                    <field name="first_name"/>-->
+<!--                    <field name="last_name"/>-->
+<!--                    <field name="dob"/>-->
+<!--                    <field name="address"/>-->
+<!--                    <templates>-->
+<!--                        <t t-name="kanban-box">-->
+<!--                            <div t-attf-class="oe_kanban_global_click">-->
+<!--                                <div class="o_kanban_image">-->
+<!--                                    <img alt="Avatar"-->
+<!--                                         t-att-src="kanban_image('school.faculty', 'image_medium',record.id.raw_value)"/>-->
+<!--                                </div>-->
+<!--                                <div class="oe_kanban_details">-->
+<!--                                    <strong class="o_kanban_record_title">-->
+<!--                                         <lable>First Name : </lable>-->
+<!--                                        <field name="first_name"/>-->
+<!--                                        <br/>-->
+<!--                                         <lable>Last Name : </lable>-->
+<!--                                        <field name="last_name"/>-->
+<!--                                        <br/>-->
+<!--                                         <lable>Date of Birth : </lable>-->
+<!--                                        <field name="dob"/>-->
+<!--                                        <br/>-->
+<!--                                         <lable>Address : </lable>-->
+<!--                                        <field name="address"/>-->
+<!--                                        <br/>-->
+<!--                                    </strong>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </t>-->
+<!--                    </templates>-->
+<!--                </kanban>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="faculty_data_action">
+            <field name="name">Faculty Data</field>
+            <field name="res_model">school.faculty</field>
+            <field name="view_mode">tree,form,search,kanban</field>
+        </record>
+
+
+    </data>
+</odoo>

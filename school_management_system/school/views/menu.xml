@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<menuitem name="School" id="school_app_menu"/>
+<!-- <menuitem name="Admission Registration" id ="admission_main" parent="school_app_menu" action="admission_data_action" sequence="1" />-->
+    <menuitem name="Admission" id="admission" parent="school_app_menu" sequence="1"/>
+    <menuitem name="Admission Registration " id="Admission_Form" parent="admission"
+              action="admission_data_action" sequence="1"/>
+    <menuitem name="Admission Form " id="create_Admission_Form" parent="admission"
+              action="create_student_profile_action"/>
+    <menuitem name="Student Fees" id="Fees_main" parent="admission" action="student_fees_data_action"/>
+
+
+
+ <menuitem name="Student " id ="school_main" parent="school_app_menu" sequence="2"/>
+ <menuitem name="Profile" id="profile_main" parent="school_main" action="student_data_action" sequence="1"/>
+ <menuitem name="Time Table " id="timetable_main" parent="school_main" action="timetable_data_action"/>
+
+
+ <menuitem name="Faculty " id="faculty_main" parent="school_app_menu" sequence="3"/>
+  <menuitem name="Faculty Profile" id="pro_main" parent="faculty_main" action="faculty_data_action" sequence="1"/>
+  <menuitem name="Time Table " id ="teachertimetable_main" parent="faculty_main" action="teachertimetable_data_action" />
+
+    <menuitem name="Attendance" id="attendance_main" parent="school_app_menu" sequence="6"/>
+    <menuitem name="Student Attendance" id="Std_att" parent="attendance_main" action="student_attendance_data_action"/>
+
+ <menuitem name="Exam"  id="exam_main" parent="school_app_menu" sequence="7"/>
+    <menuitem name="Exam Attendance" id="std_exam_attendance" parent="exam_main" action="student_examattendance_data_action"/>
+    <menuitem name="Mark Sheets" id="Marks_main" parent="exam_main" action="action_student_mark"/>
+
+
+ <menuitem name="Subject " id="subject_main" parent="school_app_menu" action="subject_data_action" sequence="4"/>
+
+  <menuitem name="Standard " id="standard_main" parent="school_app_menu" action="standard_data_action" sequence="5"/>
+
+
+</odoo>
+
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--School Exam report-->
+<odoo>
+    <data>
+   <record id="faculty_profile_action" model="ir.actions.report">
+       <field name="name">Faculty Profile</field>
+       <field name="model">school.faculty</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">school.faculty_profile</field>
+       <field name="report_file">school.faculty_profile</field>
+       <field name="print_report_name">'%s' % (object.full_name).replace('/', '')</field>
+      <field name="binding_model_id" ref="model_school_faculty" />
+       <field name="binding_type">report</field>
+   </record>
+    </data>
+</odoo>

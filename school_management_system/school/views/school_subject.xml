@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="subject_data_tree_view">
+            <field name="name">subject.data.tree.view</field>
+            <field name="model">school.subject</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="subject_name"/>
+                    <field name="subject_code"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="subject_data_form_view">
+            <field name="name">subject.data.form.view</field>
+            <field name="model">school.subject</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="subject_name" />
+                            <field name="subject_code" />
+                            <field name="subjects_standard"/>
+                        </group>
+                        <notebook>
+                            <page string="Faculty" name="Faculty Subject">
+                                <field name="faculty_subjectselection">
+                                    <tree>
+                                       <field name="first_name" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="subject_data_action">
+            <field name="name">Subject Data</field>
+            <field name="res_model">school.subject</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="school.subject_data_tree_view"/>
+        </record>
+
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="{{mod}}.action_server">
+              <field name="name">{{name}} server</field>
+              <field name="model_id" ref="model_{{mod}}_{{mod}}"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+
+    </data>
+</odoo>
